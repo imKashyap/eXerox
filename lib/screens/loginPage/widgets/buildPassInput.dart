@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 
-class EmailInput extends StatefulWidget {
+class PassInput extends StatefulWidget {
+  PassInput();
   @override
-  _EmailInputState createState() => _EmailInputState();
+  _PassInputState createState() => _PassInputState();
 }
 
-class _EmailInputState extends State<EmailInput> {
-  _EmailInputState();
+class _PassInputState extends State<PassInput> {
+
+  _PassInputState();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical:15.0, horizontal: 20.0),
+      padding: const EdgeInsets.symmetric(vertical:3.0, horizontal: 20.0),
       child: TextField(
-            keyboardType: TextInputType.emailAddress,
+            obscureText: show ? true : false,
             decoration: InputDecoration(
               prefixIcon: Icon(
-                Icons.email,
+                Icons.lock,
                 color: Colors.grey,
               ),
               enabledBorder: OutlineInputBorder(
@@ -27,14 +30,29 @@ class _EmailInputState extends State<EmailInput> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(30.0)),
                 borderSide: BorderSide(
-                  color: Colors.transparent,
+                  color: Colors.red,
                 ),
               ),
-              hintText: 'you@example.com',
+              suffixIcon: IconButton(
+                  icon: Icon(
+                    (show ? Icons.visibility_off : Icons.visibility),
+                    color: Colors.grey,
+                  ),
+                  onPressed: isHidden),
               fillColor: Colors.grey[300],
               filled: true,
+              hintText: 'Password',
             ),
           ),
     );
   }
+
+  bool show = true;
+
+  void isHidden() {
+    setState(() {
+      show = !show;
+    });
+  }
 }
+

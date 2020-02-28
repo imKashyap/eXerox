@@ -10,7 +10,8 @@ class _SubmitState extends State<Submit> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 5.0
+      ),
       child: RaisedButton(
         child: Text(
           'Login',

@@ -1,8 +1,14 @@
-import 'package:exerox/screens/loginPage/widgets/emailInput.dart';
-import 'package:exerox/screens/loginPage/widgets/heading.dart';
-import 'package:exerox/screens/loginPage/widgets/passInput.dart';
-import 'package:exerox/screens/loginPage/widgets/submit.dart';
-import 'package:exerox/screens/provider.dart';
+import 'package:exerox/screens/loginPage/widgets/buildCheckBox.dart';
+import 'package:exerox/screens/loginPage/widgets/buildEmailInput.dart';
+import 'package:exerox/screens/loginPage/widgets/buildForgetText.dart';
+import 'package:exerox/screens/loginPage/widgets/buildHeadBack.dart';
+import 'package:exerox/screens/loginPage/widgets/buildHeading.dart';
+import 'package:exerox/screens/loginPage/widgets/buildOrText.dart';
+import 'package:exerox/screens/loginPage/widgets/buildPassInput.dart';
+import 'package:exerox/screens/loginPage/widgets/buildRegister.dart';
+import 'package:exerox/screens/loginPage/widgets/buildSignInWithText.dart';
+import 'package:exerox/screens/loginPage/widgets/buildSocialOptions.dart';
+import 'package:exerox/screens/loginPage/widgets/buildSubmit.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -14,66 +20,45 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Stack(
         children: <Widget>[
-          Heading(),
-          SizedBox(
-            height: 20.0,
-          ),
-          Container(
-            height: 40.0,
-            //color:Colors.blue ,
-            child: Text(
-              'LOGIN',
-              style: TextStyle(
-                fontFamily: 'OpenSans',
-                color: Colors.black,
-                fontSize: 20.0,
+          HeadBack(),
+          ListView(
+            children: <Widget>[
+              Heading(),
+              SizedBox(
+                height: 20.0,
               ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          SizedBox(
-            height: 15.0,
-          ),
-          EmailInput(),
-          PassInput(),
-          Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical:5.0
-            ),
-            alignment: Alignment.centerRight,
-            child: Text(
-              'Forgotten Password?',
-              style: TextStyle(
-                fontFamily: 'OpenSans',
-                color: Colors.red,
+              Container(
+                height: 40.0,
+                //color:Colors.blue ,
+                child: Text(
+                  'LOGIN',
+                  style: TextStyle(
+                    fontFamily: 'OpenSans',
+                    color: Colors.black,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
-          ),
-          Submit(),
-          Container(
-            padding: EdgeInsets.symmetric(
-                horizontal: 20.0,
-                vertical:5.0
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              '-OR-',
-              style: TextStyle(
-                fontFamily: 'OpenSans',
-                color: Colors.red,
-                fontSize: 15.0
+              SizedBox(
+                height: 15.0,
               ),
-            ),
+              EmailInput(),
+              PassInput(),
+              ForgetText(),
+              CheckBox(),
+              Submit(),
+              OrText(),
+              SignInWithText(),
+              SocialOptions(),
+              Register(),
+            ],
           ),
-          
         ],
       ),
     );
   }
 }
-
-
-

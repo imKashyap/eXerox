@@ -67,14 +67,11 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    CircularProgressIndicator(
-                      backgroundColor: Colors.white,
-                    ),
                     Padding(
                       padding: EdgeInsets.only(top: 20.0),
                     ),
                     Text(
-                      '      Online Store \n For All  Your Zerox',
+                      '      Online Store \n For All  Your Xerox',
                       style: TextStyle(
                         fontFamily: 'OpenSans',
                         color: Colors.white,
